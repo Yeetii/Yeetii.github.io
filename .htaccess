@@ -1,0 +1,20 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.erikmagnusson\.com$
+RewriteRule ^/?$ "http\:\/\/erikmagnusson\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\.erikmagnusson\.se$
+RewriteRule ^/?$ "http\:\/\/erikmagnusson\.se\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^erikmagnusson\.se$
+RewriteRule ^/?$ "http\:\/\/erikmagnusson\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^66\.96\.147\.159
+RewriteRule (.*) http://erikmagnusson.com/$1 [R=301,L]
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

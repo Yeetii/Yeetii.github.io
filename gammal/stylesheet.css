@@ -1,0 +1,30 @@
+html{	
+	background: url('images/skalad.jpg') no-repeat center center fixed;
+}
+h1{
+	font-size: 40px;
+	font-weight: bold;
+}
+#wrapper{
+	margin: 30px 100px;
+}
+#header{
+	background-color: rgba(1, 1, 1, 0.2);
+	padding: 10px;
+}
+#menu{
+	margin-top: 5px;
+}
+#menu li{
+	display: inline;
+}
+#menu a{
+	color: black;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 2px;
+}
+#menu a:hover{
+	background-color: black;
+	color: white;
+}

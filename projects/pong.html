@@ -1,0 +1,128 @@
+<html style="padding=0; margin=0px">
+<link href="reset.css" rel="stylesheet" type="text/css">
+<script src="processing.js"></script>
+<script type="text/processing" data-processing-target="mycanvas">
+var maxWidth = window.innerWidth;
+var maxHeight = window.innerHeight;
+var player1Score = 0;
+var player2Score = 0;
+window.addEventListener('resize', resizeCanvas, false); //Auto resize window
+
+void setup()
+{
+  resizeCanvas();
+  PFont fontA = loadFont("verdana");
+  textFont(fontA, 14);
+  println("Starting!");
+  background(200);
+  fill(255);
+  
+};
+
+
+function resizeCanvas() {
+  size(window.innerWidth, window.innerHeight)
+}
+
+//Ball object
+var Ball = function(){
+  this.spawn = function(){
+    this.x = maxWidth/2;
+    this.y = maxHeight/2;
+    this.xSpeed = random(-6,-6);
+    this.ySpeed = random(-6,-6);
+  }
+
+  this.spawn();
+
+  
+};
+
+Ball.prototype.draw = function(){
+  fill(255,255,0);
+  ellipse(this.x, this.y, 30, 30);
+};
+
+Ball.prototype.updateLocation = function(paddle1, paddle2){
+  this.x += this.xSpeed;
+  this.y += this.ySpeed;
+
+  this.draw();
+
+  //Wall detection
+  //X-axis
+  if (this.x + 15 >= maxWidth)
+  {
+    player1Score++;
+    this.spawn();
+  }else if(this.x - 15 <= 0){
+    player2Score++;
+    this.spawn();
+  }
+  //Y-axis
+  if (this.y + 15 >= maxHeight || this.y - 15 <= 0)
+  {
+    this.ySpeed *= -1;
+  }
+
+  //Paddle detection
+  if (this.x <= paddle1.x + 20 && this.y <= paddle1.y + paddle1.height && this.y >= paddle1.y){
+    this.xSpeed *= -1;
+  }
+  if (this.x >= paddle2.x && this.y <= paddle1.y + paddle2.height && this.y >= paddle2.y){
+    this.xSpeed *= -1;
+  }
+};
+
+
+
+//Paddle Object
+var Paddle = function(x, y, ai){
+  this.x = x;
+  this.y = y;
+  this.ai = ai;
+  this.height = 100;
+};
+
+Paddle.prototype.draw = function(ball1){
+  //Human
+  if (!this.ai){
+    this.y = mouseY;
+  }else{//AI
+    if (this.y < ball1.y){
+      this.y += 6;
+    }
+    else{
+      this.y -= 6;
+    }
+  }
+  
+
+  //Prevents moving paddle under map
+  if (this.y > maxHeight - this.height){
+    this.y = maxHeight - this.height;
+  }
+  rect(this.x, this.y, 15, this.height);
+};
+
+var ball1 = new Ball();
+var paddle1 = new Paddle(20, 100, false);
+var paddle2 = new Paddle(maxWidth - 35, 100, true);
+
+void draw()
+{  
+  background(200);
+  fill(255);
+  //Score text
+  textAlign(CENTER);
+  textSize(60);
+  text(player1Score + " - " + player2Score,maxWidth/2,100);
+  
+  paddle1.draw(ball1);
+  paddle2.draw(ball1);
+  ball1.updateLocation(paddle1, paddle2);
+  
+}
+</script>
+<canvas id="mycanvas"></canvas>
+</html>

@@ -1,0 +1,84 @@
+html{
+	font-family: sans-serif;
+}
+h1{
+	font-size: 50px;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+h2{
+	font-size: 40px;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+.row{
+	margin-right: 0;
+}
+
+.header{
+	top: 0;
+	position: fixed;
+	width: 100%;
+	padding: 10px 10px;
+	background: #333333;
+	color: white;
+}
+
+.nav li{
+	color: #fff;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	display: inline;
+}
+
+.nav a{
+	color: #fff;
+	text-decoration: none;
+	padding: 30px 10px;
+}
+
+.nav a:hover{
+	color: #467;
+	transition: color .5s;
+}
+
+.jumbotron{
+	margin: 0 auto;
+	background: url("img/bg.jpg") no-repeat center center fixed;
+	background-size: cover;
+	height: calc(100vh);
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.jumbotron h1{
+	/* Ugly, should have pushing div above instead of padding */
+	padding-top: 300px;
+	font-weight: 600;
+	font-size: 100px;
+	text-shadow: 2px 2px #467;
+}
+
+.content{
+	margin: 0 auto;
+	margin-top: 100px;
+	max-width: 960px;
+}
+.content .col-md-6 div{
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 4px;
+	background: #dfdfdf;
+	min-height: 160px;
+}
+
+.footer{
+	bottom: 0;
+	right: 5px;
+	position: fixed;
+}
+.footer a{
+	color: #555
+}
