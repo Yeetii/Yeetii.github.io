@@ -3,6 +3,8 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
+title: Blog
+permalink: /blog/
 ---
 <h1>Latest Posts</h1>
 
