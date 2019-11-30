@@ -1,44 +1,119 @@
-﻿<!DOCTYPE HTML>
+---
+layout: null
+title: Jekyll Theme - Home Page - Massively
+description: Every great website starts with a great homepage. The homepage tells your viewers what your site is all about and gives your viewers a place to come back to.
+sitemap:
+    priority: 1.0
+    lastmod: 2017-11-02
+    changefreq: weekly
+---
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+  Jekyll integration by somiibo.com
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-	<!--<link href="reset.css" rel="stylesheet" type="text/css">-->
-	<meta charset="utf-8"/>
-	<meta name="description" content="The site of Erik Magnusson"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link href="style.css" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="img/fav.png">
-	<title>Erik Magnusson</title>
-</head>
-<body>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	<head>
+    {% include head.html %}
 
-	  ga('create', 'UA-17992878-5', 'auto');
-	  ga('send', 'pageview');
 
-	</script>
-	
-	<div class="header">
-		
-			<ul class="nav nav-pills">
-				<li><a href="#">Home</a></li>
-				<li><a href="/blog">Blog</a></li>
-				<li><a href="/projects">Projects</a></li>
-				<li><a href="/me">Me</a></li>
-			</ul>
-		
-	</div>
-	<div class="jumbotron">
-		<h1>Erik Magnusson</h1>
+	</head>
+	<body class="is-loading">
 
-	</div>
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
 
-	<div class="footer">
-		<p>Photographer: <a href="https://www.flickr.com/photos/laszlo-photo/3185734228/in/photolist-5RvHNd-dTouxf-dGQt34-wY1iYk-w1wYPp-8MHsFb-qi8zR6-y8krpF-x2zjMJ-cjiR5y-a9nq86-fLEXVC-6Yfycn-5EJVfJ-aC11Xp-pNnZdH-9SzwE-akfPCk-n2E4Z7-fwuqJe-8w9BMj-57pYra-ktoBM-fCrZo9-fC7LWv-xuhNba-cCd6jW-9ddpnf-94SkbZ-fDTtmn-7AbHBG-nRTuEC-pFEg6L-7xjjXA-aF3Jkp-aC3F4Y-7yYduY-cuhPRY-uRSXBT-B1Gbwh-pH6EWA-aJiDBZ-iyXJQf-8EBwEg-x4YtJw-4jJx1d-hYNKFs-naWdpZ-naWgVW-q8f58d">Lazlo Ilyes</a></p>
-	</div>
-</body>
+				<!-- Intro -->
+					<div id="intro">
+            <h1>{{site.title}}</h1>
+						<h2>The Jekyll Theme Version</h2>
+						<p>Massively is an HTML5 website theme designed by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a><br />
+						and released for free under the <a href="https://html5up.net/license">Creative Commons license</a>. Jekyll integration by <a href="https://somiibo.com">Somiibo</a></p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+
+            {% include nav.html %}
+
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<h2><a href="#">Massively is a versatile Jekyll theme</a></h2>
+									<p>With only a few edits, you can have a stunningly beautiful website <br />
+                    nearly out of the box. Of course... you can always take it further <br />
+                    and make it something even more amazing!</p>
+								</header>
+								<a href="#" class="image main"><img src="{{ "/images/pic01.jpg" | absolute_url }}" alt="" /></a>
+                <p>Regardless of your website's function, the homepage is what brings the user in.
+                  If it's anything short of intriguing, captivating, or just plain cool, you're out of luck and you might deter some visitors.</p>
+                <p>Your homepage must clearly describe what your site is about.
+									Having engaging content will in this manner enable you to offer and it will make your customers more inclined to purchase from you. Content is a way to position your organization in the correct place for your clients to discover you.
+								</p>
+								<p>
+									In this manner, content in itself is a standout amongst the best promoting apparatuses in your whole advertising toolbox! Rather than making your content around your promoting technique, it's limitlessly more productive to fabricate your showcasing around your content.
+								 </p>
+
+							</article>
+
+						<!-- Posts -->
+							<section class="posts">
+                {% for post in site.posts limit:3 %}
+                {% assign mod3 = forloop.index | modulo: 3 %}
+  								<article>
+  									<header>
+  										<span class="date">{{ post.date | date_to_string }}</span>
+  										<h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+  									</header>
+  									<a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
+  									<p>{{ post.excerpt }}</p>
+  									<ul class="actions">
+  										<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
+  									</ul>
+  								</article>
+                  {% if mod3 == 0 %}
+                  <article>
+  									<header>
+  										<h2><a href="#">Sponsored</a></h2>
+  									</header>
+
+  								</article>
+                  {% endif %}
+                {% endfor %}
+
+							</section>
+
+						<!-- Footer -->
+							<footer>
+                <ul class="actions">
+                  <li><a href="{{ "/blog/" | absolute_url }}" class="button">Our Blog</a></li>
+                </ul>
+							</footer>
+
+					</div>
+
+				<!-- Footer -->
+        {% include foot.html %}
+
+			</div>
+
+		<!-- Scripts -->
+		{% include scripts-main.html %}
+    {% include tracking.html %}
+
+	</body>
 </html>
