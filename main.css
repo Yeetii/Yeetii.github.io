@@ -1,0 +1,74 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: rgb(119,119,119);
+    background: radial-gradient(circle, rgba(119,119,119,0.8883928571428571) 0%, rgba(65,65,65,1) 100%);
+}
+
+h1 {
+    color: #e8c31b;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #dbdbdb;
+    font-size: 30px;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 20px 0;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+li a {
+    display: inline-block;
+    color: #dbdbdb;
+    font-size: 24px;
+    padding: 12px;
+    margin-bottom: 7px;
+    border: 2px solid #e8c31b;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+li a:hover {
+    background-color: #e8c31b;
+    color: #000;
+}
+
+li a:active {
+    background-color: #dbdbdb;
+}
+
+.icon-links {
+    text-align: center
+}
+
+.icon {
+    transition: fill 0.3s ease;
+}
+
+.icon-links a:hover .icon {
+    fill: #ffdf64;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    height: 100vh;          
+}
